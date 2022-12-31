@@ -3,9 +3,8 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 
-const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({data_categories}) {
   return (
     <>
       <Head>
@@ -24,26 +23,31 @@ export default function Home() {
         </nav>
       </header>
       <main className={styles.main}>
+        {data_categories.map((index:any)=>{
+          return(<>
+          <a href=''>
+            <div>
+            <h2>{index.title}</h2>
+            <img src={index.image} style={{height:'200px',width:'200px'}}/>
+            <p>{index.description}</p>
+            </div>
+            </a>
+          </>);
+        })}
        
-        <a href=''>
-           <h2>Events in London</h2>
-           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia repellendus incidunt dolor provident quidem cumque praesentium, ex quam at autem sit molestias facere. Facilis distinctio rem in error a temporibus.</p>
-
-        </a>
-        <a href=''>
-           <h2>Events in SansFrancsico</h2>
-           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia repellendus incidunt dolor provident quidem cumque praesentium, ex quam at autem sit molestias facere. Facilis distinctio rem in error a temporibus.</p>
-
-        </a>
-        <a href=''>
-           <h2>Events in Madrid</h2>
-           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia repellendus incidunt dolor provident quidem cumque praesentium, ex quam at autem sit molestias facere. Facilis distinctio rem in error a temporibus.</p>
-
-        </a>
       </main>
       <footer className={styles.footer}>
         Helllo
       </footer>
     </>
   )
+}
+import data from '../data/data.json';
+
+export function getServerSideProps(){
+    return {
+        props:{
+            data_categories:data['events_categories']
+        }
+    }
 }

@@ -1,3 +1,4 @@
+
 const Page:React.FC=()=>{
     return(
         <div>
@@ -5,7 +6,7 @@ const Page:React.FC=()=>{
     <div>
 
     <a href=''>
-           <h2>Events in London</h2>
+           <h2>London</h2>
            
 
         </a>
