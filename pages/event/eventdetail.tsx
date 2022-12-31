@@ -4,3 +4,7 @@ const Page:React.FC=()=>{
     )
 }
 export default Page;
+
+
+// /event/[eventPerCity]/[event]
+// /event/eventInLondon/chiristmas
