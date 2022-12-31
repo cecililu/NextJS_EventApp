@@ -1,10 +1,19 @@
-const Page:React.FC=()=>{
+const Page:React.FC=({filter})=>{
+    console.log('filter',filter)
     return(
     <div>
-        <h1>Event in London</h1>
-            <a href='/event/event1'>Event 1</a>
-            <a href='/event/event2'>Event 2</a>
-            <a href='/event/event3'>Event 3</a>
+      
+        {filter.map((index:any)=>{
+             return(<>
+              <>
+              <div>
+                <h3>{index.title}</h3>
+                <center><img src={index.image} style={{height:'150px',width:'150px'}}/></center>
+                <p>{index.description}</p>
+              </div>
+            </>
+             </>)
+        })}
     </div>
     )
 }
@@ -30,11 +39,10 @@ export async function getStaticPaths(){
 
   export async function  getStaticProps(context:any){
     const  data=await import( '../../../data/data.json') 
-    console.log(context);
+    const id=context.params.category;
+    console.log('asdads',id)
+    const filter=data['allEvents'].filter(ev=>ev.city===id);
   return {
-      props:{
-        
-        
-      }
+      props:{ filter}
   }
 }
