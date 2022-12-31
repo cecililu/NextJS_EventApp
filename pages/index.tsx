@@ -22,13 +22,13 @@ export default function Home({data_categories}) {
           <a href='/aboutus'>About us</a>
         </nav>
       </header>
-      <main className={styles.main}>
+      <main className={styles.main}> 
         {data_categories.map((index:any)=>{
           return(<>
-          <a href={index.id} style={{background:'white',borderRadius:'10px',margin:'02px',padding:'20px',height:'300px',width:'700px'}}>
+          <a href={'event/'+index.id} style={{background:'white',borderRadius:'10px',margin:'02px',padding:'20px',height:'250px',width:'700px'}}>
             <div>
-            <h2>{index.title}</h2>
-            <img src={index.image} style={{height:'200px',width:'200px'}}/>
+            <center><h3>{index.title}</h3></center>
+            <center><img src={index.image} style={{height:'150px',width:'150px'}}/></center>
             <p>{index.description}</p>
             </div>
             </a>
@@ -42,9 +42,10 @@ export default function Home({data_categories}) {
     </>
   )
 }
-import data from '../data/data.json';
 
-export function getServerSideProps(){
+
+export async function  getServerSideProps(){
+      const  data=await import( '../data/data.json')
     return {
         props:{
             data_categories:data['events_categories']

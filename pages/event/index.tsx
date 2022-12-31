@@ -1,25 +1,28 @@
-
-const Page:React.FC=()=>{
-    return(
-        <div>
-    <h1>Event Page</h1>
+const Page: React.FC = ({ data_categories }) => {
+  return (
     <div>
-
-    <a href=''>
-           <h2>London</h2>
-           
-
-        </a>
-        <a href=''>
-           <h2>Events in SansFrancsico</h2>
-          
-        </a>
-        <a href=''>
-           <h2>Events in Madrid</h2>
-           
-        </a>
+      <h1>Event Page</h1>
+      <div>
+        {data_categories.map((index: any) => {
+          return (
+            <>
+              <a href={"/event/" + index.title}>
+                <h3>{index.title}</h3>
+                <center><img src={index.image} style={{height:'150px',width:'150px'}}/></center>
+              </a>
+            </>
+          );
+        })}
+      </div>
     </div>
-    </div>
-    )
-}
+  );
+};
 export default Page;
+export async function getStaticProps() {
+  const data = await import("../..//data/data.json");
+  return {
+    props: {
+      data_categories: data["events_categories"],
+    },
+  };
+}
