@@ -25,7 +25,7 @@ export default function Home({data_categories}) {
       <main className={styles.main}>
         {data_categories.map((index:any)=>{
           return(<>
-          <a href=''>
+          <a href={index.id} style={{background:'white',borderRadius:'10px',margin:'02px',padding:'20px',height:'300px',width:'700px'}}>
             <div>
             <h2>{index.title}</h2>
             <img src={index.image} style={{height:'200px',width:'200px'}}/>
