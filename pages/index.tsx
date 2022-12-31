@@ -24,8 +24,26 @@ export default function Home() {
         </nav>
       </header>
       <main className={styles.main}>
-        Helllo
+       
+        <a href=''>
+           <h2>Events in London</h2>
+           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia repellendus incidunt dolor provident quidem cumque praesentium, ex quam at autem sit molestias facere. Facilis distinctio rem in error a temporibus.</p>
+
+        </a>
+        <a href=''>
+           <h2>Events in SansFrancsico</h2>
+           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia repellendus incidunt dolor provident quidem cumque praesentium, ex quam at autem sit molestias facere. Facilis distinctio rem in error a temporibus.</p>
+
+        </a>
+        <a href=''>
+           <h2>Events in Madrid</h2>
+           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia repellendus incidunt dolor provident quidem cumque praesentium, ex quam at autem sit molestias facere. Facilis distinctio rem in error a temporibus.</p>
+
+        </a>
       </main>
+      <footer className={styles.footer}>
+        Helllo
+      </footer>
     </>
   )
 }
